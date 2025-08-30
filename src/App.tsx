@@ -11,19 +11,20 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/movie-revieww">
         <div className="min-h-screen bg-background">
           <Navigation />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/movies" element={<MoviesPage />} />
             <Route path="/movie/:id" element={<MovieDetailPage />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            {/* Catch-all route for 404s */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
